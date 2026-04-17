@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lentes Luxury | Oficial</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: url('img/fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header { width: 100%; display: flex; justify-content: center; padding: 40px 0; }
+        .logo { width: 280px; height: auto; }
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .swiper { width: 100%; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .swiper-slide img { width: 100%; height: auto; display: block; border-radius: 20px; }
+
+        .wrapper-derecho { display: flex; justify-content: flex-end; width: 100%; padding-bottom: 80px; }
+
+        .contacto {
+            width: 100%;
+            max-width: 450px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contacto h2 { font-size: 26px; margin-bottom: 8px; color: #000; text-align: left; }
+        .contacto p { font-size: 15px; margin-bottom: 25px; color: #666; text-align: left; }
+
+        .form-container { display: flex; flex-direction: column; align-items: flex-start; } /* Alinea todo al inicio (izquierda) */
+
+        .fila { display: flex; gap: 15px; margin-bottom: 15px; width: 100%; }
+        input, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; background: #f1f5f9; outline: none; }
+        .full { width: 100%; margin-bottom: 15px; }
+
+        /* AJUSTE FINAL DE POLÍTICAS Y BOTÓN */
+        .politicas {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            margin-bottom: 25px;
+            color: #444;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .politicas input {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .btn-enviar {
+            background: #000;
+            color: #fff;
+            padding: 14px 50px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-enviar:hover { background: #333; }
+
+        @media (max-width: 768px) {
+            .wrapper-derecho { justify-content: center; }
+            .fila { flex-direction: column; }
+            .btn-enviar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="img/logo.png" alt="Lentes Luxury" class="logo">
+    </header>
+
+    <div class="container">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/Clear-Sky.jpg"></div>
+                <div class="swiper-slide"><img src="img/Evolution.jpg"></div>
+                <div class="swiper-slide"><img src="img/Luxury-Ultra.jpg"></div>
+                <div class="swiper-slide"><img src="img/Spektra.jpg"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="wrapper-derecho">
+            <section class="contacto">
+                <h2>Envíanos un mensaje</h2>
+                <p>Por favor, completa el formulario para contactarnos.</p>
+                
+                <form action="enviar_correo.php" method="POST" class="form-container">
+                    <div class="fila">
+                        <input type="text" name="nombre" placeholder="Nombre" required>
+                        <input type="text" name="apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="full"><input type="email" name="email" placeholder="Correo electrónico" required></div>
+                    <div class="full"><input type="tel" name="telefono" placeholder="Número de teléfono" required></div>
+                    <textarea name="mensaje" placeholder="Mensaje" rows="3" class="full"></textarea>
+                    
+                    <label class="politicas">
+                        <input type="checkbox" required> 
+                        <span>He leído y acepto los Términos de Servicio y Privacidad.</span>
+                    </label>
+                    
+                    <button type="submit" class="btn-enviar">Enviar</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 4000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+    </script>
+</body>
+</html>
