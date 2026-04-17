@@ -19,7 +19,13 @@
             background-size: cover;
         }
 
-        .header { width: 100%; display: flex; justify-content: center; padding: 40px 0; }
+       .header {
+    display: flex;
+    justify-content: flex-start; /* Esto lo mueve a la izquierda */
+    align-items: center;
+    padding: 60px 5%; /* El 5% es para que no quede pegado al borde de la pantalla */
+    background: transparent;
+}
         .logo { width: 280px; height: auto; }
 
         .container {
