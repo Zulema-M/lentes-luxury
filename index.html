@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
+        /* CSS se mantiene idéntico al anterior */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
@@ -30,6 +31,7 @@
         }
 
         .swiper { width: 100%; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .swiper-slide a { display: block; width: 100%; height: 100%; }
         .swiper-slide img { width: 100%; height: auto; display: block; border-radius: 20px; }
 
         .wrapper-derecho { display: flex; justify-content: flex-end; width: 100%; padding-bottom: 80px; }
@@ -46,13 +48,12 @@
         .contacto h2 { font-size: 26px; margin-bottom: 8px; color: #000; text-align: left; }
         .contacto p { font-size: 15px; margin-bottom: 25px; color: #666; text-align: left; }
 
-        .form-container { display: flex; flex-direction: column; align-items: flex-start; } /* Alinea todo al inicio (izquierda) */
+        .form-container { display: flex; flex-direction: column; align-items: flex-start; }
 
         .fila { display: flex; gap: 15px; margin-bottom: 15px; width: 100%; }
         input, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; background: #f1f5f9; outline: none; }
         .full { width: 100%; margin-bottom: 15px; }
 
-        /* AJUSTE FINAL DE POLÍTICAS Y BOTÓN */
         .politicas {
             display: flex;
             align-items: flex-start;
@@ -85,6 +86,15 @@
 
         .btn-enviar:hover { background: #333; }
 
+        /* Estilo para tu firma en el footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 12px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
         @media (max-width: 768px) {
             .wrapper-derecho { justify-content: center; }
             .fila { flex-direction: column; }
@@ -101,10 +111,10 @@
     <div class="container">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/Clear-Sky.jpg"></div>
-                <div class="swiper-slide"><img src="img/Evolution.jpg"></div>
-                <div class="swiper-slide"><img src="img/Luxury-Ultra.jpg"></div>
-                <div class="swiper-slide"><img src="img/Spektra.jpg"></div>
+                <div class="swiper-slide"><a href="https://clearskyar.com/" target="_blank"><img src="img/Clear-Sky.jpg"></a></div>
+                <div class="swiper-slide"><a href="http://lentesevolution.com/" target="_blank"><img src="img/Evolution.jpg"></a></div>
+                <div class="swiper-slide"><a href="https://wa.me/50258251743" target="_blank"><img src="img/Luxury-Ultra.jpg"></a></div>
+                <div class="swiper-slide"><a href="https://wa.me/50258251743" target="_blank"><img src="img/Spektra.jpg"></a></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -113,7 +123,6 @@
             <section class="contacto">
                 <h2>Envíanos un mensaje</h2>
                 <p>Por favor, completa el formulario para contactarnos.</p>
-                
                 <form action="enviar_correo.php" method="POST" class="form-container">
                     <div class="fila">
                         <input type="text" name="nombre" placeholder="Nombre" required>
@@ -122,17 +131,19 @@
                     <div class="full"><input type="email" name="email" placeholder="Correo electrónico" required></div>
                     <div class="full"><input type="tel" name="telefono" placeholder="Número de teléfono" required></div>
                     <textarea name="mensaje" placeholder="Mensaje" rows="3" class="full"></textarea>
-                    
                     <label class="politicas">
                         <input type="checkbox" required> 
                         <span>He leído y acepto los Términos de Servicio y Privacidad.</span>
                     </label>
-                    
                     <button type="submit" class="btn-enviar">Enviar</button>
                 </form>
             </section>
         </div>
     </div>
+
+    <footer>
+        <p>Desarrollado por <strong>Ing. en Sistemas Carmen Chay</strong> &copy; 2026</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -140,6 +151,9 @@
             loop: true,
             autoplay: { delay: 4000 },
             pagination: { el: ".swiper-pagination", clickable: true },
+            preventClicks: false,
+            preventClicksPropagation: false,
+            touchStartPreventDefault: false
         });
     </script>
 </body>
